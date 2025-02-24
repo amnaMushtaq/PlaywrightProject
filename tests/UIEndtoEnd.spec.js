@@ -1,5 +1,5 @@
 const {test, expect}=require('@playwright/test')
-test.only('Add Item to cart',async({page})=>{
+test('Add Item to cart',async({page})=>{
 
     const productName= "ADIDAS ORIGINAL"
     const products=page.locator(".card")
@@ -56,13 +56,19 @@ test.only('Add Item to cart',async({page})=>{
     const orderIdDetails=await page.locator(".col-text").textContent()
     expect((orderID).includes(orderIdDetails)).toBeTruthy()
 
-
-
-
-
-
     await page.pause()
 
+});
 
+test('Playwright getByLabel locator',async({page})=>{
+    await page.goto("https://rahulshettyacademy.com/angularpractice/")
+    await page.getByLabel("Check me out if you Love IceCreams!").check()
+    await page.getByLabel("Gender").selectOption("Female")
+    await page.getByPlaceholder("Password").fill("test")
+    await page.getByRole("button",{name:'Submit'}).click()
+    await page.getByText(" The Form has been submitted successfully!.").isVisible()
+    await page.getByRole("link",{name:'Shop'}).click()
+    await page.locator("app-card").filter({hasText:'Blackberry'}).getByRole("button").click()
+    await page.pause()
 
 });

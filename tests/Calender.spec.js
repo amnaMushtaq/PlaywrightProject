@@ -1,6 +1,6 @@
 const{test,expect}=require('@playwright/test')
 
-test.only("Calendar Validation",async({page})=>{
+test("Calendar Validation",async({page})=>{
     const monthNumber="6"
     const day="15"
     const year="2027"

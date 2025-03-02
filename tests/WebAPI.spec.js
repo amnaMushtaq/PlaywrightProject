@@ -14,7 +14,7 @@ test.beforeAll(async()=>{
 
 })
 
-test.only('client App login',async({page})=>{
+test('client App login',async({page})=>{
     
 
     await page.addInitScript(value =>{

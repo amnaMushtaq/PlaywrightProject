@@ -15,7 +15,7 @@ import { time, trace } from 'console';
  */
 const config=({
   testDir: './tests',
-  timeout:50000,
+  timeout:100000,
    
   expect:{
     timeout: 60_000
@@ -28,6 +28,7 @@ const config=({
     headless: true,
     // screenshot:'on',
     // trace:'retain-on-failure'
+     trace:'on'
   },
     
 });

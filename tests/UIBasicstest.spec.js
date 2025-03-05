@@ -23,9 +23,11 @@ test('page playwright test ',async ({page})=>{
 
 });
 test('login page Validation',async({page})=>{
+    await page.route('**/*.css',route=>route.abort())
+    
     const userName=page.locator("#username");
     const errorMessage=page.locator("[style*='block']")
-    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");  
     await userName.fill("rahulshttyacademy");
     await page.locator("#password").fill("learning");
     await page.locator("[name='signin']").click();

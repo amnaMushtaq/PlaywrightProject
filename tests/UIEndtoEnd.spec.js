@@ -1,5 +1,5 @@
 const {test, expect}=require('@playwright/test')
-test.only('Add Item to cart',async({page})=>{
+test('Add Item to cart',async({page})=>{
 
     const productName= "ADIDAS ORIGINAL"
     await page.route('**/*.{jpg,png,jpeg}',route=>route.abort())

@@ -44,8 +44,10 @@ test('login page Validation',async({page})=>{
     
 });
 
-test('Add items to cart',async({page})=>{
-    await page.goto("https://rahulshettyacademy.com/client");
+test.only('Add items to cart',async({page})=>{
+    await page.on('request',reqest=>console.log(reqest.url()))
+    await page.on('response',response=>console.log(response.url(),response.status()))
+    await page.goto("https://rahulshettyacademy.com/client")
     await page.locator("#userEmail").fill("admin25@gmail.com");
     await page.locator("#userPassword").fill("Admin123")
     await page.locator("#login").click();

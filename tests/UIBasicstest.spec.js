@@ -40,11 +40,11 @@ test('login page Validation',async({page})=>{
     // console.log(await page.locator(".card-body a").first().textContent());
     // console.log(await page.locator(".card-body a").nth(1).textContent());
     console.log(await page.locator(".card-body a").allTextContents());
-
+   
     
 });
 
-test.only('Add items to cart',async({page})=>{
+test('Add items to cart',async({page})=>{
     await page.on('request',reqest=>console.log(reqest.url()))
     await page.on('response',response=>console.log(response.url(),response.status()))
     await page.goto("https://rahulshettyacademy.com/client")

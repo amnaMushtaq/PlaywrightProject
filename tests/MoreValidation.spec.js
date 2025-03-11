@@ -23,7 +23,7 @@ test('login page Validation',async({page})=>{
 
     
 });
-test.only('Visual Testing',async({page})=>{
+test('Visual Testing',async({page})=>{
     
 
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/"); 

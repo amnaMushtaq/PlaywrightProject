@@ -32,7 +32,7 @@ async function readExcel(workSheet,searchText) {
     return output    
 }
 
-test.only('upload download excel Validation',async({page})=>{
+test('upload download excel Validation',async({page})=>{
     const searchText='Mango'
     const updateValue='400'
 
@@ -44,14 +44,11 @@ test.only('upload download excel Validation',async({page})=>{
     const downloadPath = 'C:/Users/mushtamn/Downloads/download.xlsx';
     await download.saveAs(downloadPath);
     writeExcelTest(searchText,updateValue,{rowChange:0,colChange:2},'C:/Users/mushtamn/Downloads/download.xlsx') // colChange :2 means we want to update the value in 0 row 2 column and here we have price
-    await page.waitForTimeout(1000);
-  
-   
+    await page.waitForTimeout(1000);  
     await page.locator('#fileinput').setInputFiles(downloadPath)
     const textlocator=page.getByText(searchText);
     console.log(textlocator)
-    const desiredRow=await page.getByRole('row').filter({has:textlocator})
-    
+    const desiredRow=await page.getByRole('row').filter({has:textlocator})   
     await expect(desiredRow.locator('#cell-4-undefined')).toContainText(updateValue)
    
 })

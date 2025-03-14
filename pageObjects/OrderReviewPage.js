@@ -7,8 +7,7 @@ class OrderReviewPage{
         this.placeOrder=page.locator(".action__submit")
         this.emailId=page.locator(".user__name [style*=lightgray]")
         this.heroTitle=page.locator(".hero-primary")
-        this.orderId=page.locator(".em-spacer-1 .ng-star-inserted")
-        
+        this.orderId=page.locator(".em-spacer-1 .ng-star-inserted")    
 
     }
     async searchCountryAndSelect(countryCode,countryName){

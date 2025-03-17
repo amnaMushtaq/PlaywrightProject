@@ -50,7 +50,7 @@ const config=({
           // screenshot:'on',
           // trace:'retain-on-failure'
            trace:'on',
-           ... devices['iPhone 11']
+          // ... devices['iPhone 11']
           
         },        
     },

@@ -4,7 +4,7 @@ class CartPage{
     constructor(page){
         this.page=page
         this.checkout=page.locator("text=Checkout")
-        this.cartItem=page.locator("div li")
+        this.cartItem=page.locator("div lie")
         
         
 

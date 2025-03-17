@@ -1,5 +1,5 @@
 const {test,expect}=require('@playwright/test');
-const {custom,expect}=require('../utils/test-base');
+const {customtest}=require('../utils/test-base');
 
 const { POManager } = require('../pageObjects/POManager');
 const dataset=JSON.parse(JSON.stringify(require('../utils/placeorderTestData.json')))
@@ -40,3 +40,20 @@ for (const data of dataset )
 
 
 
+customtest.only(`Client Login App using fxiture by extend test annotation `,async({page,testDataForOrder})=>{
+   
+    const poManager=new POManager(page)
+    const loginPage=poManager.getLoginPage()
+    await loginPage.goTo()
+    await loginPage.validLogin(testDataForOrder.userEmail,testDataForOrder.password)
+    
+    const dashboardPage =poManager.getDashboardPage()
+    await dashboardPage.searchProductAddCart(testDataForOrder.productName)
+    await dashboardPage.navigateToCart()
+
+    const cartPage=poManager.getCartpage()
+    await cartPage.verifyProductIsDisplayed(testDataForOrder.productName)
+    await cartPage.Checkout()
+
+    
+});
